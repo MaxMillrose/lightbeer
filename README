@@ -1,5 +1,18 @@
-This is Dropbear, a smallish SSH server and client.
+This is Lightbeer -a fork of 
+Dropbear, a smallish SSH server and client.
 https://matt.ucc.asn.au/dropbear/dropbear.html
+
+Our goal is to provide a small SSH-Server that runs locally on some obscure port and is exposed via TOR to the world.
+Hence our server will not be doing much authentication, since that is handled by TOR.
+
+So far I have only stripped down the original dropbear code and made some changes to localoptions.h.
+I also increased the PW-length from a mesely 100 to 255.
+
+Development is currently done in branch "dev-serveronly"
+
+
+Rest of the README (down below) is still left unchanged and might not aplly anymore!
+
 
 INSTALL has compilation instructions.
 
