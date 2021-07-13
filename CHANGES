@@ -1,3 +1,12 @@
+2021.01 
+- removed files that are not needed for server functionality
+- removed some snippets from Makefile.in 
+- changed default PORT to 123
+- changed default ADDRESS to 127.0.0.1
+
+
+
+### CHANGES FROM original dropbear code ###
 2020.81 - 29 October 2020
 
 - Fix regression in 2020.79 which prevented connecting with some SSH 
