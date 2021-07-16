@@ -67,6 +67,8 @@
 #include "session.h"
 #include "atomicio.h"
 
+
+/*TODO: WHat is this? Whhat does it do?*/
 #define MAX_FMT 100
 
 static void generic_dropbear_exit(int exitcode, const char* format, 
@@ -83,6 +85,7 @@ void (*_dropbear_log)(int priority, const char* format, va_list param)
 int debug_trace = 0;
 #endif
 
+
 #ifndef DISABLE_SYSLOG
 void startsyslog(const char *ident) {
 
@@ -91,6 +94,8 @@ void startsyslog(const char *ident) {
 }
 #endif /* DISABLE_SYSLOG */
 
+
+/*exit with success*/
 /* the "format" string must be <= 100 characters */
 void dropbear_close(const char* format, ...) {
 
@@ -102,6 +107,8 @@ void dropbear_close(const char* format, ...) {
 
 }
 
+
+/*exit with failure*/
 void dropbear_exit(const char* format, ...) {
 
 	va_list param;
