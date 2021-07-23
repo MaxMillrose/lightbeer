@@ -3,6 +3,8 @@
  * 
  * Copyright (c) 2002,2003 Matt Johnston
  * All rights reserved.
+ * Additional changes made by Max Millrose
+ * Copyright (c) 2021
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -98,7 +100,7 @@ parse_ciphers_macs() {
 #endif
 
 void print_version() {
-	fprintf(stderr, "Dropbear v%s\n", DROPBEAR_VERSION);
+	fprintf(stderr, "Dropbear v%s\n", LIGHTBEER_VERSION);
 }
 
 

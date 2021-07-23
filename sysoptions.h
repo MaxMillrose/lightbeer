@@ -3,11 +3,11 @@
  * This file is only included from options.h
  *******************************************************************/
 
-#ifndef DROPBEAR_VERSION
-#define DROPBEAR_VERSION "2021.01"
+#ifndef LIGHTBEER_VERSION
+#define LIGHTBEER_VERSION "2021.01"
 #endif
 
-#define LOCAL_IDENT "SSH-2.0-dropbear_" DROPBEAR_VERSION
+#define LOCAL_IDENT "SSH-2.0-dropbear_" LIGHTBEER_VERSION
 #define PROGNAME "dropbear"
 
 /* Spec recommends after one hour or 1 gigabyte of data. One hour

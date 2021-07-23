@@ -98,7 +98,7 @@ int main(int argc, char ** argv) {
 			"'scp' - secure copy\n"
 #endif
 			,
-			DROPBEAR_VERSION);
+			LIGHTBEER_VERSION);
 	exit(1);
 
 }

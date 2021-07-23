@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=$(echo '#include "sysoptions.h"\necho DROPBEAR_VERSION' | cpp - | sh)
+VERSION=$(echo '#include "sysoptions.h"\necho LIGHTBEER_VERSION' | cpp - | sh)
 echo Releasing version "$VERSION" ...
 if ! head -n1 CHANGES | grep -q $VERSION ; then
 	echo "CHANGES needs updating"
