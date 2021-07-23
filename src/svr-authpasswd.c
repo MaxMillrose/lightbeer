@@ -65,7 +65,7 @@ void svr_auth_password(int valid_user) {
 	}
 
 	password = buf_getstring(ses.payload, &passwordlen);
-	if (valid_user && passwordlen <= DROPBEAR_MAX_PASSWORD_LEN) {
+	if (valid_user && passwordlen <= LIGHTBEER_MAX_PASSWORD_LEN) {
 		/* the first bytes of passwdcrypt are the salt */
 		passwdcrypt = ses.authstate.pw_passwd;
 		testcrypt = crypt(password, passwdcrypt);
@@ -80,7 +80,7 @@ void svr_auth_password(int valid_user) {
 		return;
 	}
 
-	if (passwordlen > DROPBEAR_MAX_PASSWORD_LEN) {
+	if (passwordlen > LIGHTBEER_MAX_PASSWORD_LEN) {
 		dropbear_log(LOG_WARNING,
 				"Too-long password attempt for '%s' from %s",
 				ses.authstate.pw_name,
