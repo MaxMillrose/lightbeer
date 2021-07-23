@@ -12,7 +12,7 @@ IMPORTANT: Some options will require "make clean" after changes */
 
 #define DROPBEAR_DEFPORT "12366"
 
-/* Listen on all interfaces */
+/* Listen on local interface */
 #define DROPBEAR_DEFADDRESS "127.0.0.1"
 
 /* Default hostkey paths - these can be specified on the command line */
