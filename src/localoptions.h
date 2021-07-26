@@ -108,7 +108,8 @@ IMPORTANT: Some options will require "make clean" after changes */
 
 /* Message integrity. sha2-256 is recommended as a default, 
    sha1 for compatibility */
-#define DROPBEAR_SHA1_HMAC 1
+// We ignore compatibility - Max@2021-07-26
+#define DROPBEAR_SHA1_HMAC 0
 #define DROPBEAR_SHA2_256_HMAC 1
 #define DROPBEAR_SHA1_96_HMAC 0
 
@@ -143,12 +144,12 @@ IMPORTANT: Some options will require "make clean" after changes */
 
 /* Key exchange algorithm.
 
- * group14_sha1 - 2048 bit, sha1
- * group14_sha256 - 2048 bit, sha2-256
- * group16 - 4096 bit, sha2-512
- * group1 - 1024 bit, sha1
- * curve25519 - elliptic curve DH
- * ecdh - NIST elliptic curve DH (256, 384, 521)
+ * ( group14_sha1 - 2048 bit, sha1 ) => Disabled
+ * group14_sha256 - 2048 bit, sha2-256 => Enabled
+ * group16 - 4096 bit, sha2-512 => Enabled
+ * ( group1 - 1024 bit, sha1 ) => Disabled
+ * curve25519 - elliptic curve DH => Enabled
+ * ecdh - NIST elliptic curve DH (256, 384, 521) => Enabled
  *
  * group1 is too small for security though is necessary if you need 
      compatibility with some implementations such as Dropbear versions < 0.53
@@ -161,17 +162,19 @@ IMPORTANT: Some options will require "make clean" after changes */
  * Small systems should generally include either curve25519 or ecdh for performance.
  * curve25519 is less widely supported but is faster
  */ 
-#define DROPBEAR_DH_GROUP14_SHA1 1
+#define DROPBEAR_DH_GROUP14_SHA1 0
 #define DROPBEAR_DH_GROUP14_SHA256 1
-#define DROPBEAR_DH_GROUP16 0
+#define DROPBEAR_DH_GROUP16 1
+#define DROPBEAR_DH_GROUP1 0
 #define DROPBEAR_CURVE25519 1
 #define DROPBEAR_ECDH 1
-#define DROPBEAR_DH_GROUP1 1
 
 /* When group1 is enabled it will only be allowed by Dropbear client
 not as a server, due to concerns over its strength. Set to 0 to allow
 group1 in Dropbear server too */
-#define DROPBEAR_DH_GROUP1_CLIENTONLY 1
+// Commented out since we don't build the client
+// TODO-MAX: Remove altogether
+// #define DROPBEAR_DH_GROUP1_CLIENTONLY 1
 
 /* Control the memory/performance/compression tradeoff for zlib.
  * Set windowBits=8 for least memory usage, see your system's
