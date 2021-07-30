@@ -54,7 +54,10 @@ int svr_add_pubkey_options(buffer *options_buf, int line_num, const char* filena
 #define svr_pubkey_allows_tcpfwd() 1
 #define svr_pubkey_allows_x11fwd() 1
 #define svr_pubkey_allows_pty() 1
-static inline void svr_pubkey_set_forced_command(struct ChanSess *chansess) { }
+// We remove *chansess since it's not needed anymore according to GCC
+static inline void svr_pubkey_set_forced_command() { }
+//static inline void svr_pubkey_set_forced_command(struct ChanSess *chansess) { }
+
 static inline void svr_pubkey_options_cleanup(void) { }
 #define svr_add_pubkey_options(x,y,z) DROPBEAR_SUCCESS
 #endif
