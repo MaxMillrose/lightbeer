@@ -24,7 +24,8 @@ endif
 
 OPTION_HEADERS = default_options_guard.h sysoptions.h
 ifneq ($(wildcard localoptions.h),)
-CFLAGS+=-DLOCALOPTIONS_H_EXISTS
+# We use these CFLAGS to inject our own flags
+CFLAGS+=-DLOCALOPTIONS_H_EXISTS -Werror
 OPTION_HEADERS += localoptions.h
 endif
 
@@ -169,8 +170,8 @@ thisclean:
 
 # Our own clean target. Leaves 3rd party alone and only cleans our code
 codeclean: thisclean tidy $(FUZZ_CLEAN) 
-	-rm -f config.h
-	-rm -f default_options_guard.h
+	#-rm -f config.h
+	#-rm -f default_options_guard.h
 
 distclean: clean tidy
 	-rm -f config.h
