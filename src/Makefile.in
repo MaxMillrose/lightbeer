@@ -170,7 +170,6 @@ thisclean:
 # Our own clean target. Leaves 3rd party alone and only cleans our code
 codeclean: thisclean tidy $(FUZZ_CLEAN) 
 	-rm -f config.h
-	-rm -f Makefile
 	-rm -f default_options_guard.h
 
 distclean: clean tidy
