@@ -167,6 +167,12 @@ clean: $(LIBTOM_CLEAN) $(FUZZ_CLEAN) thisclean
 thisclean:
 	-rm -f dropbear$(EXEEXT) *.o *.da *.bb *.bbg *.prof
 
+# Our own clean target. Leaves 3rd party alone and only cleans our code
+codeclean: thisclean tidy $(FUZZ_CLEAN) 
+	-rm -f config.h
+	-rm -f Makefile
+	-rm -f default_options_guard.h
+
 distclean: clean tidy
 	-rm -f config.h
 	-rm -f Makefile
@@ -177,6 +183,7 @@ tidy:
 
 lint:
 	cd $(srcdir); ./dropbear_lint.sh
+
 
 ## Fuzzing targets
 
